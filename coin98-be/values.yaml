@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: public.ecr.aws/r3a6p2c4/coin98-be
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -43,13 +43,15 @@ service:
 ingress:
   enabled: true
   annotations:
-  annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/load-balancer-name: coin98-be
     alb.ingress.kubernetes.io/subnets: subnet-07a839775561bbce0, subnet-09007185b8443298b
     alb.ingress.kubernetes.io/security-groups: sg-0fe2bd365af761958
+    alb.ingress.kubernetes.io/healthcheck-path: /list
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/healthcheck-port: '4000'
   hosts:
     # - host: chart-example.local
     - paths:

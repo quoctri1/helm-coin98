@@ -35,7 +35,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: REACT_APP_API
-            value: $(COIN98_BE_SERVICE_HOST)
+            value: "http://coin98-be-63997134.us-east-1.elb.amazonaws.com"
+          - name: REACT_APP_PORT
+            value: "80"
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
