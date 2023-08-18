@@ -1,0 +1,2 @@
+Check pod by running the command:
+  kubectl --namespace kube-system get pods
