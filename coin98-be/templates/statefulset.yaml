@@ -37,6 +37,10 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/sh", "-c", "rm -rf /usr/src/app/uploads/lost+found" ]
           livenessProbe:
             httpGet:
               path: /list
@@ -76,7 +80,6 @@ spec:
   - metadata:
       name: uploads
     spec:
-      storageClassName: fsx-sc
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
