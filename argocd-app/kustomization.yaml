@@ -2,6 +2,5 @@
 resources:
 - coin98-fe.yaml
 - coin98-be.yaml
-- argocd-app.yaml
 
 namespace: argocd
