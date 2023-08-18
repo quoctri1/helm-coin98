@@ -76,6 +76,7 @@ spec:
   - metadata:
       name: uploads
     spec:
+      storageClassName: fsx-sc
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
