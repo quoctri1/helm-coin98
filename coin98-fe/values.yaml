@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: public.ecr.aws/r3a6p2c4/coin98-fe
   pullPolicy: Always
-  tag: dev-d7b12e04920e189570fa8541fea4a7bbfcf4af22
+  tag: dev-8b59e9d87ac012e8761d832d5a576268ce75c25b
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
